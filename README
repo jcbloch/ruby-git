@@ -1,0 +1,35 @@
+Usage...
+
+
+Git.exists?
+=>
+
+Git.current_branch
+=> "master"
+
+Git.get("remote.origin.url")
+=> "git@github.com:jcbloch/ruby-git.git"
+
+Git.get(:remote,:origin,:url)
+=> "git@github.com:jcbloch/ruby-git.git"
+
+Git.set("test_setting","default","value")
+error: invalid key: test_setting.default
+=> ""
+
+Git.set("testSetting","default","value")
+=> ""
+
+Git.get("testSetting","default")
+=> "value"
+
+Git.set("testSetting","master","default","mastervalue")
+=> ""
+
+Git.get("testSetting","master","default")
+=> "mastervalue"
+
+# on first run, the hook might not exist.. not matter
+Git.hook("post-checkout", "post-checkout-test.rb")
+cp: .git/hooks/post-checkout: No such file or directory
+=> ""
